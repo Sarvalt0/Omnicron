@@ -1,52 +1,25 @@
 import React from 'react';
-import { Link as RouterLink } from 'react-router-dom';
-import {
-  AppBar,
-  Toolbar,
-  Typography,
-  Button,
-  IconButton,
-  Badge,
-  Box,
-} from '@mui/material';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import { Link } from 'react-router-dom';
 
 function Navbar() {
   return (
-    <AppBar position="fixed">
-      <Toolbar>
-        <Typography
-          variant="h6"
-          component={RouterLink}
-          to="/"
-          sx={{
-            flexGrow: 1,
-            textDecoration: 'none',
-            color: 'inherit',
-          }}
-        >
-          Omnicron
-        </Typography>
-        <Box sx={{ display: 'flex', gap: 2 }}>
-          <Button
-            color="inherit"
-            component={RouterLink}
-            to="/shop"
-          >
-            Shop
-          </Button>
-          <IconButton
-            color="inherit"
-            component={RouterLink}
-            to="/cart"
-          >
-            <Badge badgeContent={0} color="secondary">
-              <ShoppingCartIcon />
-            </Badge>
-          </IconButton>
-        </Box>
-      </Toolbar>
-    </AppBar>
+    <nav style={{
+      position: 'fixed',
+      top: 0,
+      left: 0,
+      right: 0,
+      height: '64px',
+      backgroundColor: '#1976d2',
+      color: 'white',
+      display: 'flex',
+      alignItems: 'center',
+      padding: '0 20px',
+      zIndex: 1000
+    }}>
+      <Link to="/" style={{ color: 'white', textDecoration: 'none', fontSize: '1.5rem' }}>
+        Omnicron
+      </Link>
+    </nav>
   );
 }
 

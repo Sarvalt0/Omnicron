@@ -1,109 +1,41 @@
 import React from 'react';
-import { Link as RouterLink } from 'react-router-dom';
-import {
-  Container,
-  Typography,
-  Button,
-  Grid,
-  Card,
-  CardContent,
-  CardMedia,
-  Box,
-} from '@mui/material';
-
-const featuredProducts = [
-  {
-    id: 1,
-    name: 'Classic T-Shirt',
-    price: 29.99,
-    image: 'https://via.placeholder.com/300x400',
-  },
-  {
-    id: 2,
-    name: 'Denim Jeans',
-    price: 59.99,
-    image: 'https://via.placeholder.com/300x400',
-  },
-  {
-    id: 3,
-    name: 'Casual Jacket',
-    price: 89.99,
-    image: 'https://via.placeholder.com/300x400',
-  },
-];
 
 function Home() {
   return (
-    <Container>
-      {/* Hero Section */}
-      <Box
-        sx={{
-          height: '60vh',
-          display: 'flex',
-          flexDirection: 'column',
-          justifyContent: 'center',
-          alignItems: 'center',
-          textAlign: 'center',
-          background: 'linear-gradient(45deg, #1976d2 30%, #21CBF3 90%)',
-          color: 'white',
-          borderRadius: 2,
-          mb: 6,
-        }}
-      >
-        <Typography variant="h2" component="h1" gutterBottom>
-          Welcome to Omnicron
-        </Typography>
-        <Typography variant="h5" gutterBottom>
-          Discover the latest trends in fashion
-        </Typography>
-        <Button
-          component={RouterLink}
-          to="/shop"
-          variant="contained"
-          color="secondary"
-          size="large"
-          sx={{ mt: 2 }}
-        >
-          Shop Now
-        </Button>
-      </Box>
-
-      {/* Featured Products */}
-      <Typography variant="h4" component="h2" gutterBottom>
-        Featured Products
-      </Typography>
-      <Grid container spacing={4}>
-        {featuredProducts.map((product) => (
-          <Grid item xs={12} sm={6} md={4} key={product.id}>
-            <Card>
-              <CardMedia
-                component="img"
-                height="400"
-                image={product.image}
-                alt={product.name}
+    <div style={{ textAlign: 'center', padding: '20px' }}>
+      <h1 style={{ fontSize: '2.5rem', marginBottom: '20px' }}>
+        Welcome to Omnicron
+      </h1>
+      <p style={{ fontSize: '1.2rem', color: '#666' }}>
+        Your one-stop shop for trendy clothing
+      </p>
+      <div style={{ marginTop: '40px' }}>
+        <h2>Featured Products</h2>
+        <div style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+          gap: '20px',
+          padding: '20px'
+        }}>
+          {[1, 2, 3].map((item) => (
+            <div key={item} style={{
+              border: '1px solid #ddd',
+              borderRadius: '8px',
+              padding: '15px',
+              textAlign: 'center'
+            }}>
+              <img
+                src={`https://via.placeholder.com/200x200`}
+                alt={`Product ${item}`}
+                style={{ width: '100%', maxWidth: '200px', marginBottom: '10px' }}
               />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="h3">
-                  {product.name}
-                </Typography>
-                <Typography variant="h6" color="primary">
-                  ${product.price}
-                </Typography>
-                <Button
-                  component={RouterLink}
-                  to={`/product/${product.id}`}
-                  variant="contained"
-                  color="primary"
-                  sx={{ mt: 2 }}
-                >
-                  View Details
-                </Button>
-              </CardContent>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
-    </Container>
+              <h3>Product {item}</h3>
+              <p>${(item * 29.99).toFixed(2)}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
   );
 }
 
